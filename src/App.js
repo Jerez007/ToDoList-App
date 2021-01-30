@@ -13,7 +13,7 @@ function App() {
   //Run once when the app starts
   useEffect(() => {
     getLocalTodos();
-  }, []);
+  }, []);// empty [] means that useEffect only runs when app starts
 
   useEffect(() => {
     filterHandler();
@@ -30,10 +30,11 @@ function App() {
         setFilteredTodos(todos.filter(todo => todo.completed === false));
         break;
       default: 
-        setFilteredTodos(todos) ;
+        setFilteredTodos(todos);
         break;
     };
   };
+
 
   //Save to Local
   const saveLocalTodos = () => {
@@ -48,6 +49,7 @@ function App() {
     }
   };
 
+
   return (
     <div className="App">
       <header>
@@ -60,8 +62,7 @@ function App() {
         setInputText={setInputText} 
         setStatus={setStatus}
       />
-      <TodoList setTodos={setTodos} todos={todos} filteredTodos={filteredTodos}
-/>
+      <TodoList setTodos={setTodos} todos={todos} filteredTodos={filteredTodos}/>
     </div>
   );
 }
